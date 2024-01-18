@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+.carousel img{
+    max-width: 50rem;
+    height: 600px;
+}
+
+.carousel-container {
+    position: relative;
+  }
+.carousel-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white; 
+}
