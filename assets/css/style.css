@@ -1,26 +1,55 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
 }
-.main-container{
-    display: flex;
-   flex-direction: row;
-   justify-content: space-around;
+:root {
+  --dark-green: #317312;
+  --green: #6ebb2d;
+  --ocean-blue: #24baec;
+  --medium-blue: #166ef3;
+  --dark-blue: #031136;
+  --blue-bay: #434a90;
+  --orange: #ff5903;
+  --pink: #fd6b6c;
+  --lilac: #c7a2cb;
+  --white: #fffffc;
+}
+body {
+  background-color: var(--);
+  color: var(--);
+  font-family: "Montserrat", sans-serif;
 }
 
-.carousel img{
-    max-width: 50rem;
-    height: 600px;
+/*Main page*/
+.main-container {
+  padding: 2vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2vw;
+  align-items: center;
+  justify-items: center;
 }
-
-.carousel-container {
-    position: relative;
-  }
+/*Questionnaire*/
+.card {
+  border-radius: 20px;
+  height: 40vw;
+}
+/*Questionnaire*/
+/*Carousel*/
+h1 {
+  font-weight: 800;
+  font-size: 4vw;
+}
+.carousel {
+  max-width: 50vw;
+  height: 40vw;
+  position: relative;
+}
 .carousel-header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    color: white; 
+  text-align: center;
 }
+.carousel img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/*Carousel*/
