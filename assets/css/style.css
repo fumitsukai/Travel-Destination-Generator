@@ -45,11 +45,3 @@ h1 {
   position: relative;
 }
 .carousel-header {
-  text-align: center;
-}
-.carousel img {
-  border-radius: 20px;
-  object-fit: cover;
-}
-
-/*Carousel*/

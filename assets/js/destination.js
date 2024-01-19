@@ -20,25 +20,52 @@ function getAPI(method, query) {
         })
 }
 
-
-
 //console.log(geolocation.then(data => console.log(data.lon)));
 
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
-//search coordinates so we can do a radius search
 
-let area = 'London';
+let area = 'Europe';
+let limit = 5;
+let interest = "nature_reserves"
 
 function getCoordinates(area) {
     const geolocation = getAPI('geoname', `&name=${area}`).then(data => {
-        const coordonates = {
+        const coordinates = {
             lon: data.lon,
             lat: data.lat
         }
-        return coordonates;
+        return coordinates;
     });
     return geolocation;
 }
 
-getCoordinates(area).then(data=>console.log(data));
+getCoordinates(area).then(data=>console.log(data.lon));
+
+//do a radius search of the area
+function searchArea(area,interest) {
+    //get lon and lat from the selected area
+    getCoordinates(area)
+    .then(data => {
+     let lon = data.lon;
+     let lat = data.lat;
+    //fetch data from api
+    getAPI('radius', `&radius=20000&limit=${limit}&rate=2&lon=${lon}&lat=${lat}&format=json&kinds=${interest}`)
+    .then(data => {
+        for (let i = 0; i < data.length;i++) {
+            goToLocation(data[i].xid);
+        }
+    })
+})
+}
+
+//need to use xid to get detailed info about the object
+
+function goToLocation(id) {
+    getAPI('xid', id).then(data => {
+        return data;
+    })
+}
+
+searchArea(area,interest).then(data=>console.log(data));
+
