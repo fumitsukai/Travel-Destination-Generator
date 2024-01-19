@@ -20,6 +20,7 @@ body {
 
 /*Main page*/
 .main-container {
+  margin-top: 3vw;
   padding: 2vw;
   display: flex;
   flex-direction: row;
@@ -27,21 +28,45 @@ body {
   gap: 2vw;
   align-items: center;
   justify-items: center;
+  text-align: center;
 }
 /*Questionnaire*/
-.card {
+.questions-container{
   border-radius: 20px;
-  height: 40vw;
+  background-color: var(--ocean-blue);
+  padding: 2vw;
+}
+.card-title{
+ margin-top: 1vw;
+ margin-bottom: 1vw;
 }
 /*Questionnaire*/
 /*Carousel*/
-h1 {
-  font-weight: 800;
-  font-size: 4vw;
-}
-.carousel {
+.carousel-inner {
   max-width: 50vw;
-  height: 40vw;
-  position: relative;
+  height: 30vw;
 }
-.carousel-header {
+.carousel-inner img {
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción original */
+}
+
+/*Carousel*/
+
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    
+  }
+
+  .carousel-inner {
+    max-width: 100%;
+    height: auto;
+  }
+  .carousel{
+padding: 2vw;
+  }
+}
