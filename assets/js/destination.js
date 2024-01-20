@@ -1,7 +1,11 @@
 const APIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
+// from index.html
+const dropdownMenu = $('#dropdown-menu');
 
-//         const queryURL = `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&limit=5&rate=2&format=json&lon=${lon}&lat=${lat}&apikey=${APIkey}`;
+//from destinations.html
 
+const cardsContainer = $('#cards-container');
+const cardRowOne = $('#card-row-one');
 
 //will need to use geolocation to grab the lat and log by name 
 //will need to use radius to grab all the things to do in the area
@@ -25,12 +29,13 @@ function getAPI(method, query) {
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
 
-let area = 'Europe';
-let limit = 5;
-let interest = "nature_reserves"
+let area = 'United';
+let limit = 3;
+let interest = "architecture"
 
 function getCoordinates(area) {
     const geolocation = getAPI('geoname', `&name=${area}`).then(data => {
+        console.log(data);
         const coordinates = {
             lon: data.lon,
             lat: data.lat
@@ -40,32 +45,58 @@ function getCoordinates(area) {
     return geolocation;
 }
 
-getCoordinates(area).then(data=>console.log(data.lon));
+getCoordinates(area).then(data => console.log(data.lon,data.lat));
 
 //do a radius search of the area
-function searchArea(area,interest) {
+function searchArea(area, interest) {
     //get lon and lat from the selected area
     getCoordinates(area)
-    .then(data => {
-     let lon = data.lon;
-     let lat = data.lat;
-    //fetch data from api
-    getAPI('radius', `&radius=20000&limit=${limit}&rate=2&lon=${lon}&lat=${lat}&format=json&kinds=${interest}`)
-    .then(data => {
-        for (let i = 0; i < data.length;i++) {
-            goToLocation(data[i].xid);
-        }
-    })
-})
+        .then(data => {
+            let lon = data.lon;
+            let lat = data.lat;
+            //fetch data from api
+            getAPI('radius', `&radius=1000&limit=${limit}&rate=3&lon=${lon}&lat=${lat}&format=json&kinds=${interest}`)
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        getAPI('xid/' + data[i].xid)
+                            .then(data => {
+                                console.log(data);
+                                createCard(data);
+                            })
+                    }
+                })
+        })
 }
 
 //need to use xid to get detailed info about the object
 
 function goToLocation(id) {
-    getAPI('xid', id).then(data => {
+    getAPI('xid/' + id).then(data => {
         return data;
     })
 }
 
-searchArea(area,interest).then(data=>console.log(data));
+searchArea(area, interest);
 
+//function to create destination cards
+//it will need a picture ,short description and a button
+function createCard(data) {
+    const cardCol = $('<div>').addClass('col-md-4');
+    const cardDiv = $('<div>').addClass('card');
+    const cardBody = $('<div>').addClass('card-body');
+    const prwImg = $('<img>').addClass('card-img-top');
+    const cardTitle = $('<h5>').addClass('card-title');
+    //create img and append to div
+    if(data.preview) {
+    prwImg.attr('src', data.preview.source);
+    } else prwImg.attr('src', "./assets/images/Ecuador.jpg");
+    //create description element
+    const descriptionEl = $('<p>').addClass('card-text').text(data.wikipedia_extracts.text);
+    //create button
+    const exploreBtn = $('<button>').addClass('btn btn-primary').text('Explore');
+    cardTitle.text(`${data.address.country}/${data.address.city}`);
+    cardBody.append(cardTitle,descriptionEl,exploreBtn);
+    cardDiv.append(prwImg,cardBody);
+    cardCol.append(cardDiv);
+    cardRowOne.append(cardCol);
+}
