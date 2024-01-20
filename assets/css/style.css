@@ -1,16 +1,12 @@
 * {
+  margin: 0;
+  padding: 0;
 }
 :root {
-  --dark-green: #317312;
-  --green: #6ebb2d;
-  --ocean-blue: #24baec;
-  --medium-blue: #166ef3;
-  --dark-blue: #031136;
   --blue-bay: #5b34eb;
   --orange: #ff5903;
-  --pink: #fd6b6c;
-  --lilac: #c7a2cb;
   --white: #fffffc;
+  --light-orange: #FFA500;
 }
 body {
   background-color: var(--blue-bay);
@@ -57,12 +53,15 @@ body {
 /*Questionnaire*/
 .questions-container {
   border-radius: 10px;
-  background-color: var(--orange);
+  background-color: var(--light-orange);
   padding: 2vw;
 }
 .card-title {
   margin-top: 1vw;
   margin-bottom: 1vw;
+}
+.card-text{
+  color: var(--blue-bay);
 }
 .btn-secondary {
   background-color: var(--white);
@@ -71,14 +70,32 @@ body {
 }
 .btn-secondary:hover,
 .btn-secondary:focus,
-.btn-secondary:active {
+.btn-secondary:active,
+.dropdown-menu {
   background-color: var(--blue-bay);
   color: var(--white);
+}
+.dropdown-menu {
+  width: 98%;
+}
+.form-check {
+  padding-left: 10%;
+}
+.form-check-input:checked {
+  background-color: var(--orange);
+  border-color: var(--white);
+}
+.search-btn{
+  background-color: var(--blue-bay);
+  color: var(--white);
+}
+.search-btn:hover{
+  background-color: var(--orange);
 }
 
 /*Questionnaire*/
 /*Carousel*/
-.carousel-container-main{
+.carousel-container-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +103,6 @@ body {
   align-items: center;
   gap: 1vw;
   padding: 2vw;
-
 }
 .carousel-inner {
   max-width: 50vw;
@@ -100,10 +116,43 @@ body {
 
 /*Carousel*/
 
+/*footer*/
+footer{
+  margin-top: 3vw;
+  padding: 1vw;
+  background-color: var(--light-orange);
+  color: var(--white);
+}
+.footer-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ font-size: 16px;
+}
+.footer-nav{
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+}
+footer a {
+  text-decoration: none;
+  color: var(--white);
+}
+footer a:hover, footer a:focus{
+  color: var(--blue-bay);
+}
+
+/*footer*/
+
 @media only screen and (max-width: 768px) {
+  .navbar-brand {
+    color: var(--orange);
+    font-weight: 800;
+    font-size: 20px;
+  }
   .main-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 4vw;
   }
 
@@ -113,6 +162,23 @@ body {
   }
   .carousel {
     padding: 2vw;
+  }
+
+  footer{
+    margin-top: 5vw;
+    padding-top: 3vw ;
+  }
+  .footer-container{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    text-align: center;
+   font-size: 16px;
+  }
+  .footer-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
   }
 }
 
