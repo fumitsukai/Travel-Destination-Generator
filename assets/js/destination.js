@@ -29,7 +29,7 @@ function getAPI(method, query) {
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
 
-let area = 'United';
+let area = 'Madrid';
 let limit = 3;
 let interest = "architecture"
 
@@ -93,7 +93,7 @@ function createCard(data) {
     //create description element
     const descriptionEl = $('<p>').addClass('card-text').text(data.wikipedia_extracts.text);
     //create button
-    const exploreBtn = $('<button>').addClass('btn btn-primary').text('Explore');
+    const exploreBtn = $('<button>').addClass('btn explore-btn').text('Explore');
     cardTitle.text(`${data.address.country}/${data.address.city}`);
     cardBody.append(cardTitle,descriptionEl,exploreBtn);
     cardDiv.append(prwImg,cardBody);
