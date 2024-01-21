@@ -24,3 +24,8 @@
     z-index: 1;
     color: white; 
 }
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
