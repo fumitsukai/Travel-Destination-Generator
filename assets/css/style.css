@@ -94,6 +94,15 @@ body {
 }
 
 /*Questionnaire*/
+
+/*Main text*/
+h1{
+  text-shadow: 2px 2px 4px #000000;
+}
+.main-text{
+  font-size: 22px;
+}
+/*Main text*/
 /*Carousel*/
 .carousel-container-main {
   display: flex;
