@@ -4,8 +4,7 @@ const dropdownMenu = $('#dropdown-menu');
 
 //from destinations.html
 
-const cardsContainer = $('#cards-container');
-const cardRowOne = $('#card-row-one');
+const gridContainer = $('#cards-container');
 
 //will need to use geolocation to grab the lat and log by name 
 //will need to use radius to grab all the things to do in the area
@@ -29,8 +28,8 @@ function getAPI(method, query) {
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
 
-let area = 'United';
-let limit = 3;
+let area = 'Madrid';
+let limit = 6;
 let interest = "architecture"
 
 function getCoordinates(area) {
@@ -61,7 +60,7 @@ function searchArea(area, interest) {
                         getAPI('xid/' + data[i].xid)
                             .then(data => {
                                 console.log(data);
-                                createCard(data);
+                                createGrid(data);
                             })
                     }
                 })
@@ -80,23 +79,45 @@ searchArea(area, interest);
 
 //function to create destination cards
 //it will need a picture ,short description and a button
-function createCard(data) {
-    const cardCol = $('<div>').addClass('col-md-4');
-    const cardDiv = $('<div>').addClass('card');
-    const cardBody = $('<div>').addClass('card-body');
-    const prwImg = $('<img>').addClass('card-img-top');
-    const cardTitle = $('<h5>').addClass('card-title');
-    //create img and append to div
+// function createCard(data) {
+//     const cardCol = $('<div>').addClass('col-md-4');
+//     const cardDiv = $('<div>').addClass('card');
+//     const cardBody = $('<div>').addClass('card-body');
+//     const prwImg = $('<img>').addClass('card-img-top');
+//     const cardTitle = $('<h5>').addClass('card-title');
+//     //create img and append to div
+//     if(data.preview) {
+//     prwImg.attr('src', data.preview.source);
+//     } else prwImg.attr('src', "./assets/images/Paris.jpg");
+//     //create description element
+//     const descriptionEl = $('<p>').addClass('card-text').text(data.name);
+//     //create button
+//     const exploreBtn = $('<button>').addClass('btn explore-btn').text('Read more');
+//     cardTitle.text(`${data.address.country}/${data.address.city}`);
+//     cardBody.append(cardTitle,descriptionEl,exploreBtn);
+//     cardDiv.append(prwImg,cardBody);
+//     cardCol.append(cardDiv);
+//     cardRowOne.append(cardCol);
+// }
+
+//create grid for locations and descriptions
+//need one row with 2 col, 1 col for the pic,1 for the description
+
+function createGrid(data) {
+    //create a row with 2 col
+    const rowDiv = $('<div>').addClass('row myRow');
+    const colPic = $('<div>').addClass('col-4');
+    const colDescr =$('<div>').addClass('col-8');
+    //add image and text from api
+    const prwImg = $('<img>').addClass('rounded float-start rowImg');
     if(data.preview) {
-    prwImg.attr('src', data.preview.source);
-    } else prwImg.attr('src', "./assets/images/Ecuador.jpg");
-    //create description element
-    const descriptionEl = $('<p>').addClass('card-text').text(data.wikipedia_extracts.text);
-    //create button
-    const exploreBtn = $('<button>').addClass('btn btn-primary').text('Explore');
-    cardTitle.text(`${data.address.country}/${data.address.city}`);
-    cardBody.append(cardTitle,descriptionEl,exploreBtn);
-    cardDiv.append(prwImg,cardBody);
-    cardCol.append(cardDiv);
-    cardRowOne.append(cardCol);
+        prwImg.attr('src', data.preview.source);
+    } else prwImg.attr('src', "./assets/images/Paris.jpg");
+    const name = $('<p>').addClass('card-text').text(data.name);
+    const description = $('<p>').text(data.wikipedia_extracts.text);
+    //append 
+    gridContainer.append(rowDiv);
+    rowDiv.append(colPic,colDescr);
+    colPic.append(prwImg);
+    colDescr.append(name,description);
 }

@@ -94,6 +94,15 @@ body {
 }
 
 /*Questionnaire*/
+
+/*Main text*/
+.index-header{
+  text-shadow: 2px 2px 4px #000000;
+}
+.main-text{
+  font-size: 22px;
+}
+/*Main text*/
 /*Carousel*/
 .carousel-container-main {
   display: flex;
@@ -107,11 +116,6 @@ body {
 .carousel-inner {
   max-width: 50vw;
   height: 30vw;
-}
-.carousel-inner img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
 
 /*Carousel*/
@@ -180,6 +184,21 @@ footer a:hover, footer a:focus{
     flex-direction: column;
     gap: 2vw;
   }
+}
+
+.myRow {
+  padding: 20px;
+}
+
+.rowImg {
+  height: 300px;
+  width: 400px;
+}
+
+.destination-header {
+  text-align: center;
+  margin: 4vw 0 2vw 0;
+  color: var(--orange);
 }
 
 /*@media only screen and (max-width: 1100px) {
