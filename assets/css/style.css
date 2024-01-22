@@ -186,18 +186,36 @@ footer a:hover, footer a:focus{
   }
 }
 
+/* Grid style */
 .myRow {
   padding: 20px;
 }
 
 .rowImg {
   height: 300px;
-  width: 400px;
+  width: 100%;
 }
 
+/* Save button */
+
+.saveBtn {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.saveBtn:hover {
+  background-color: var(--light-orange);
+  color: var(--blue-bay);
+}
+
+/* Destionation.html header*/
 .destination-header {
   text-align: center;
   margin: 4vw 0 2vw 0;
+  color: var(--white);
+}
+
+.poiName {
   color: var(--orange);
 }
 

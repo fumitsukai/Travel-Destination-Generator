@@ -77,47 +77,25 @@ function goToLocation(id) {
 
 searchArea(area, interest);
 
-//function to create destination cards
-//it will need a picture ,short description and a button
-// function createCard(data) {
-//     const cardCol = $('<div>').addClass('col-md-4');
-//     const cardDiv = $('<div>').addClass('card');
-//     const cardBody = $('<div>').addClass('card-body');
-//     const prwImg = $('<img>').addClass('card-img-top');
-//     const cardTitle = $('<h5>').addClass('card-title');
-//     //create img and append to div
-//     if(data.preview) {
-//     prwImg.attr('src', data.preview.source);
-//     } else prwImg.attr('src', "./assets/images/Paris.jpg");
-//     //create description element
-//     const descriptionEl = $('<p>').addClass('card-text').text(data.name);
-//     //create button
-//     const exploreBtn = $('<button>').addClass('btn explore-btn').text('Read more');
-//     cardTitle.text(`${data.address.country}/${data.address.city}`);
-//     cardBody.append(cardTitle,descriptionEl,exploreBtn);
-//     cardDiv.append(prwImg,cardBody);
-//     cardCol.append(cardDiv);
-//     cardRowOne.append(cardCol);
-// }
-
 //create grid for locations and descriptions
 //need one row with 2 col, 1 col for the pic,1 for the description
 
 function createGrid(data) {
     //create a row with 2 col
-    const rowDiv = $('<div>').addClass('row myRow');
-    const colPic = $('<div>').addClass('col-4');
-    const colDescr =$('<div>').addClass('col-8');
+    const rowDiv = $('<div>').addClass('row myRow text-center');
+    const colPic = $('<div>').addClass('col-md-4 col-sm-12');
+    const colDescr =$('<div>').addClass('col-md-8 col-sm-12 d-flex flex-column');
     //add image and text from api
     const prwImg = $('<img>').addClass('rounded float-start rowImg');
     if(data.preview) {
         prwImg.attr('src', data.preview.source);
     } else prwImg.attr('src', "./assets/images/Paris.jpg");
-    const name = $('<p>').addClass('card-text').text(data.name);
-    const description = $('<p>').text(data.wikipedia_extracts.text);
+    const name = $('<p>').text(data.name).addClass('fs-4 text-start ps-4 poiName fw-bold');
+    const description = $('<p>').text(data.wikipedia_extracts.text).addClass('text-break lh-md text-start ps-4 mt-3');
+    const saveBtn = $('<button>').addClass('btn saveBtn float-start ms-4 mt-auto').text('Save');
     //append 
     gridContainer.append(rowDiv);
     rowDiv.append(colPic,colDescr);
     colPic.append(prwImg);
-    colDescr.append(name,description);
+    colDescr.append(name,description,saveBtn);
 }
