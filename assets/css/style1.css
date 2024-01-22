@@ -1,7 +1,48 @@
-body{
+* {
+    margin: 0;
+    padding: 0;
+  }
+  :root {
+    --blue-bay: #5b34eb;
+    --orange: #ff5903;
+    --white: #fffffc;
+    --light-orange: #FFA500;
+  }
+  body {
+    background-color: var(--blue-bay);
+    color: var(--white);
     font-family: "Montserrat", sans-serif;
+  }
+
+h1 {
+  text-align: center;
+  margin: 4vw 0 2vw 0;
 }
-h1{
-    text-align: center;
-    margin: 4vw 0 2vw 0;
+.card img {
+  height: 15vw;
 }
+
+.card {
+  height: 30vw;
+
+}
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /*Show just 4 lines of text*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;  /*Hides any content that overflows the container*/
+    text-overflow: ellipsis; /*Adds ellipses to indicate truncated text*/
+    white-space: normal; 
+    color: var(--blue-bay);
+}
+.card-title{
+    color: var(--orange);
+}
+.explore-btn{
+    background-color: var(--blue-bay);
+    color: var(--white);
+  }
+  .explore-btn:hover{
+    background-color: var(--orange);
+    color: var(--white);
+  }
