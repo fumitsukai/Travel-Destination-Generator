@@ -1,6 +1,13 @@
+//map API
 const APIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
 // from index.html
 const dropdownMenu = $('#dropdown-menu');
+
+let area = 'Madrid';
+let limit = 6;
+let interest = "architecture";
+
+
 
 //from destinations.html
 
@@ -28,10 +35,6 @@ function getAPI(method, query) {
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
 
-let area = 'Madrid';
-let limit = 6;
-let interest = "architecture"
-
 function getCoordinates(area) {
     const geolocation = getAPI('geoname', `&name=${area}`).then(data => {
         console.log(data);
@@ -43,8 +46,6 @@ function getCoordinates(area) {
     });
     return geolocation;
 }
-
-getCoordinates(area).then(data => console.log(data.lon,data.lat));
 
 //do a radius search of the area
 function searchArea(area, interest) {
@@ -66,16 +67,6 @@ function searchArea(area, interest) {
                 })
         })
 }
-
-//need to use xid to get detailed info about the object
-
-function goToLocation(id) {
-    getAPI('xid/' + id).then(data => {
-        return data;
-    })
-}
-
-searchArea(area, interest);
 
 //create grid for locations and descriptions
 //need one row with 2 col, 1 col for the pic,1 for the description
