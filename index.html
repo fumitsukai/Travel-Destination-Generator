@@ -1,193 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destination Generator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="./assets/icons/icons8-earth-planet-50.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel Destination Generator</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="./assets/icons/icons8-earth-planet-50.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg custom-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">WanderEase</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <img src="./assets/icons/icons8-earth-planet-50.png" alt="">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" aria-current="page" href="./index.html">Home</a>
-          <a class="nav-link" href="#">Favourites</a>
-
+  <body>
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">WanderEase</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <img src="./assets/icons/icons8-earth-planet-50.png" alt="" />
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+            <a class="nav-link" href="#">Favourites</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <main>
-    <div class="main-container">
-      <div class="questions-container"> <!-- class= "card" -->
-        <div class="card-body" id="dropdown-menu">
-          <h2 class="card-title">Craft your next adventure</h2>
-          <p class="card-text">In just a few clicks</p>
+    </nav>
+    <main>
+      <div class="main-container">
+        <div class="questions-container">
+          <div class="card-body" id="dropdown-menu">
+            <h2 class="card-title">Craft your next adventure</h2>
+            <p class="card-text">In just a few clicks</p>
+            <div class="form-group text-center">
+              <label for="formGroupExampleInput" class="input-city"
+                >Which European city would you like to visit?</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Madrid"
+              />
+            </div>
 
-          <div class="form-group">
-            <label for="formGroupExampleInput" id="btn-secondary" >Which European city would you like to visit?</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Madrid">
+            <!-- Dropdown 2nd question-->
+            <div class="dropdown mb-4">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                What are your interests?
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <!-- checkbox -->
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault1"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault1"
+                      >Tourist attractions</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault2"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault2"
+                      >Restaurants</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault3"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault3"
+                      >Hotels</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault4"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault4"
+                      >Parks</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault5"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault5"
+                      >Any</label
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Dropdown end -->
+            <!-- Dropdown 3rd question -->
+            <div class="dropdown mb-4">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton2"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Choose your search radius
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <!-- checkbox -->
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault6"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault6"
+                      >Within 5 km</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault7"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault7"
+                      >Within 10 km</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault8"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault8"
+                      >Within 20 km</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault9"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault9"
+                      >Within 50 km</label
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault10"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault10"
+                      >Any distance</label
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Dropdown end -->
+            <a class="btn search-btn" id="search-btn">SEARCH</a>
           </div>
-         
-          <!-- Dropdown 2nd question-->
-          <div class="dropdown mb-4">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              What are your interests?
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-              <!-- checkbox -->
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-                  <label class="form-check-label" for="flexCheckDefault6">Tourist attractions</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
-                  <label class="form-check-label" for="flexCheckDefault7">Restaurants</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-                  <label class="form-check-label" for="flexCheckDefault8">Hotels</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9">
-                  <label class="form-check-label" for="flexCheckDefault9">Parks</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault10">
-                  <label class="form-check-label" for="flexCheckDefault10">Any</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- Dropdown end -->
-          <!-- Dropdown 3rd question -->
-          <div class="dropdown mb-4">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Choose your search radius
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-              <!-- checkbox -->
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-                  <label class="form-check-label" for="flexCheckDefault11">Within 5 km</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault12">
-                  <label class="form-check-label" for="flexCheckDefault12">Within 10 km</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault13">
-                  <label class="form-check-label" for="flexCheckDefault13">Within 20 km</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault14">
-                  <label class="form-check-label" for="flexCheckDefault14">Within 50 km</label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault15">
-                  <label class="form-check-label" for="flexCheckDefault15">Any distance</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- Dropdown end -->
-          <a class="btn search-btn" id="search-btn">SEARCH</a>
         </div>
 
-      </div>
-
-      <div class="carousel-container-main">
-        <div class="main-text">
-          <h1 class="index-header">WanderEase</h1>
-         <p> Choose your travel destination, customize points of interest, set your city radius, and unlock a tailored adventure. Explore and bring your dream vacation to life!</p>
-        </div>
-        <div class="carousel-container">
-          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./assets/images/Budapest.jpg" class="d-block w-100" alt="Budapest">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Denmark.jpg" class="d-block w-100" alt="Amsterdam">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Germany.jpg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/London.jpg" class="d-block w-100" alt="Tower bridge">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Paris.jpg" class="d-block w-100" alt="Paris city view ">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Porto.jpg" class="d-block w-100" alt="Porto city view">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Prague.jpg" class="d-block w-100" alt="Prague city view">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Rome.jpg" class="d-block w-100" alt="Rome city view">
+        <div class="carousel-container-main">
+          <div class="main-text">
+            <h1 class="index-header">WanderEase</h1>
+            <p>
+              Choose your travel destination, customize points of interest, set
+              your city radius, and unlock a tailored adventure. Explore and
+              bring your dream vacation to life!
+            </p>
+          </div>
+          <div class="carousel-container">
+            <div
+              id="carouselExampleSlidesOnly"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="./assets/images/Budapest.jpg"
+                    class="d-block w-100"
+                    alt="Budapest"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Denmark.jpg"
+                    class="d-block w-100"
+                    alt="Amsterdam"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Germany.jpg"
+                    class="d-block w-100"
+                    alt=""
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/London.jpg"
+                    class="d-block w-100"
+                    alt="Tower bridge"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Paris.jpg"
+                    class="d-block w-100"
+                    alt="Paris city view "
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Porto.jpg"
+                    class="d-block w-100"
+                    alt="Porto city view"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Prague.jpg"
+                    class="d-block w-100"
+                    alt="Prague city view"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./assets/images/Rome.jpg"
+                    class="d-block w-100"
+                    alt="Rome city view"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-  </main>
-  <footer>
-    <div class="footer-container">
-      <div>
-        <p>©2024</p>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div>
+          <p>©2024</p>
+        </div>
+        <div class="footer-nav">
+          <a href="#">Home</a>
+          <a href="#">Favourites</a>
+        </div>
       </div>
-      <div class="footer-nav"> <a href="#">Home</a>
-        <a href="#">Favourites</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-  <script src="./assets/js/destination.js"></script>
-  <script src="./assets/js/script.js"></script>
-  
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/destination.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
