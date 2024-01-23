@@ -224,6 +224,7 @@ footer a:focus {
 .saveBtn {
   background-color: var(--orange);
   color: var(--white);
+  width: 50%;
 }
 
 .saveBtn:hover {
