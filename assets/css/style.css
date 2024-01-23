@@ -63,7 +63,7 @@ body {
 .card-text{
   color: var(--blue-bay);
 }
-.btn-secondary {
+.btn-secondary, .form-control{
   background-color: var(--white);
   color: var(--blue-bay);
   width: 98%;
