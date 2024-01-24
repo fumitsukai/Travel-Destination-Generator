@@ -7,4 +7,13 @@ $(document).ready(function () {
         inputValue = inputValue.replace(/[^A-Z]/g, '');
         inputValue = inputValue.slice(0, 3);
         $(this).val(inputValue);
-    }); }
+    }); 
+
+// Datepicker
+$('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+});
+
+});
+
