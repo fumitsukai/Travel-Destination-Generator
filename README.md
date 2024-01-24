@@ -1,4 +1,4 @@
-# Travel-Destination-Generator
+# WanderEase
 
 WanderEase is a web application that taps into the capabilities of the OpenTripMap API, providing individuals with a tailored adventure planning experience. Users can specify their preferred European city, interests, and search radius, resulting in the dynamic creation of a grid showcasing destinations complete with engaging images and detailed descriptions. This intuitive experience is facilitated through the integration of jQuery, Bootstrap, and the OpenTripMap API.
 
@@ -9,7 +9,7 @@ Deployed project URL:
 
 These screenshots shows how the app looks:
 
-![Desktop view](./assets/images/)
+![Desktop view](./assets/images/WanderEase-home.png)
 
 
 
