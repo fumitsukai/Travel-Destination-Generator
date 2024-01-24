@@ -1,15 +1,16 @@
-$(document).ready(function () {
+
     //  API key from OpenWeatherMap
     const weatherapiKey = '79d4bf887f35318f325936bf38d2e5ba';
    //Default city
-    // const city = locationInput.val();
-    const city = "london";
+    const city = locationInput.val();
+    // const city = "london";
     
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherapiKey}&units=metric`;
 
     // Fetch weather data using Fetch API
-    fetch(apiUrl)
+    function showWeather (){
+        fetch(apiUrl)
         .then(function(response){
            return response.json()
         })
@@ -20,10 +21,10 @@ $(document).ready(function () {
         .catch(function(error){
             console.error('Error fetching weather data:', error);
         });
-
+    }
     // Function to display weather information in the card
     function displayWeatherInfo(currentdata) {
-        const weatherInfoElement = $('body');
+        const weatherInfoElement = $('.main-container');
 
         const temperature = currentdata.main.temp;
         const description = currentdata.weather[0].description;
@@ -39,5 +40,4 @@ $(document).ready(function () {
         `;
 
         weatherInfoElement.append(weatherHtml);
-    }
-});
+    };
