@@ -96,6 +96,11 @@ body {
 .dropdown-menu {
   width: 90%;
 }
+.dropdown-menu.card-body{
+  display: flex;
+  flex-direction: column;
+
+}
 .form-check {
   padding-left: 10%;
 }
@@ -103,6 +108,12 @@ body {
   background-color: var(--orange);
   border-color: var(--white);
 }
+.datepicker {
+  width: 200px;
+  font-size: 14px; 
+  padding-left: 12px;
+}
+
 .search-btn {
   background-color: var(--blue-bay);
   color: var(--white);
