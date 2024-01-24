@@ -6,7 +6,7 @@
   --blue-bay: #5b34eb;
   --orange: #ff5903;
   --white: #fffffc;
-  --light-orange: #FFA500;
+  --light-orange: #ffa500;
 }
 body {
   background-color: var(--blue-bay);
@@ -55,18 +55,36 @@ body {
   border-radius: 10px;
   background-color: var(--light-orange);
   padding: 2vw;
+  width: 60%;
 }
 .card-title {
   margin-top: 1vw;
   margin-bottom: 1vw;
+  text-shadow: 2px 2px 4px #000000;
 }
-.card-text{
+
+.input-city {
   color: var(--blue-bay);
 }
+
+.form-control {
+  background-color: var(--white);
+  color: var(--blue-bay);
+  width: 98%;
+  margin-bottom: 1.5vw;
+  border: 1px solid;
+  text-align: center;
+}
+
+.form-group {
+  width: 100%;
+}
+
 .btn-secondary {
   background-color: var(--white);
   color: var(--blue-bay);
   width: 98%;
+  border: 1px solid var(--blue-bay);
 }
 .btn-secondary:hover,
 .btn-secondary:focus,
@@ -76,7 +94,7 @@ body {
   color: var(--white);
 }
 .dropdown-menu {
-  width: 98%;
+  width: 90%;
 }
 .form-check {
   padding-left: 10%;
@@ -85,23 +103,25 @@ body {
   background-color: var(--orange);
   border-color: var(--white);
 }
-.search-btn{
+.search-btn {
   background-color: var(--blue-bay);
   color: var(--white);
 }
-.search-btn:hover{
+.search-btn:hover {
   background-color: var(--orange);
 }
 
 /*Questionnaire*/
 
 /*Main text*/
-.index-header{
+.index-header {
   text-shadow: 2px 2px 4px #000000;
+  font-size: 50px;
 }
-.main-text{
+.main-text {
   font-size: 22px;
 }
+
 /*Main text*/
 /*Carousel*/
 .carousel-container-main {
@@ -121,19 +141,19 @@ body {
 /*Carousel*/
 
 /*footer*/
-footer{
+footer {
   margin-top: 3vw;
   padding: 1vw;
   background-color: var(--light-orange);
   color: var(--white);
 }
-.footer-container{
+.footer-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
- font-size: 16px;
+  font-size: 16px;
 }
-.footer-nav{
+.footer-nav {
   display: flex;
   flex-direction: row;
   gap: 3vw;
@@ -142,7 +162,8 @@ footer a {
   text-decoration: none;
   color: var(--white);
 }
-footer a:hover, footer a:focus{
+footer a:hover,
+footer a:focus {
   color: var(--blue-bay);
 }
 
@@ -160,6 +181,13 @@ footer a:hover, footer a:focus{
     gap: 4vw;
   }
 
+  .questions-container {
+    width: 80%;
+  }
+  .form-control {
+   margin-bottom: 5vw;
+  }
+  
   .carousel-inner {
     max-width: 100%;
     height: auto;
@@ -168,18 +196,18 @@ footer a:hover, footer a:focus{
     padding: 2vw;
   }
 
-  footer{
+  footer {
     margin-top: 5vw;
-    padding-top: 3vw ;
+    padding-top: 3vw;
   }
-  .footer-container{
+  .footer-container {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
     text-align: center;
-   font-size: 16px;
+    font-size: 16px;
   }
-  .footer-nav{
+  .footer-nav {
     display: flex;
     flex-direction: column;
     gap: 2vw;
@@ -201,6 +229,7 @@ footer a:hover, footer a:focus{
 .saveBtn {
   background-color: var(--orange);
   color: var(--white);
+  width: 50%;
 }
 
 .saveBtn:hover {
