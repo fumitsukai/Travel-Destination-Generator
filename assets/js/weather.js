@@ -1,93 +1,43 @@
-// Creates the file for weather api 
+$(document).ready(function () {
+    //  API key from OpenWeatherMap
+    const weatherapiKey = '79d4bf887f35318f325936bf38d2e5ba';
+   //Default city
+    // const city = locationInput.val();
+    const city = "london";
+    
 
-$(document).ready(function(){
-    $("#form-submit").submit(function(e){
-        doingSearch(e);
-    })
-})
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherapiKey}&units=metric`;
 
-function doingSearch(e){
-    e.preventDefault();
-    let request;
+    // Fetch weather data using Fetch API
+    fetch(apiUrl)
+        .then(function(response){
+           return response.json()
+        })
+        .then(function(data){
+            console.log(data);
+            displayWeatherInfo(data);
+        })
+        .catch(function(error){
+            console.error('Error fetching weather data:', error);
+        });
 
-   request = $.ajax({
-        url: 'https://api.openweathermap.org/data/2.5/weather',
-        type: "GET",
-        data: {
-            q: $("#city").val(),
-            appid : '79d4bf887f35318f325936bf38d2e5ba',
-            units : 'metric'
-        }
-    });
-    request.done(function(response){
-        formatSearch(response);
-    });
-}
+    // Function to display weather information in the card
+    function displayWeatherInfo(currentdata) {
+        const weatherInfoElement = $('body');
 
-function formatSearch(jsonObject){
-    let city_name = jsonObject.name;
-    let city_weather = jsonObject.weather[0].main;
-    let city_temp = jsonObject.main.temp;
+        const temperature = currentdata.main.temp;
+        const description = currentdata.weather[0].description;
+        const iconUrl = `https://openweathermap.org/img/w/${currentdata.weather[0].icon}.png`;
 
-    $("#city-name").text(city_name);
-    $("#city-weather").text(city_weather);
-    $("#city-temp").text(city_temp + " °C");
-}
+        const weatherHtml = `
+            <div class="card">
+            <h5 class="card-title">${city}</h5>
+            <p class="card-text">${description}</p>
+            <p class="card-text">Temperature: ${temperature} °C</p>
+            <img src="${iconUrl}" alt="Weather Icon">
+            </div>
+        `;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div id="weather-container">
-    <h2>Real-time Weather Updates</h2>
-    <label for="city">Enter city:</label>
-    <input type="text" id="city" placeholder="City">
-    <button onclick="getWeather()">Get Weather</button>
-
-    <div id="weather-info"></div>
-</div> */}
-
-    // function getWeather() {
-    //     const apiKey = '79d4bf887f35318f325936bf38d2e5ba';
-    //     const city = document.getElementById('city').value;
-
-    //     if (city === '') {
-    //         alert('Please enter a city.');
-    //         return;
-    //     }
-
-    //     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-    //     fetch(apiUrl)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.cod === '404') {
-    //                 alert('City not found. Please enter a valid city.');
-    //                 return;
-    //             }
-
-    //             const weatherInfo = `
-    //                 <h3>${data.name}, ${data.sys.country}</h3>
-    //                 <p>Temperature: ${Math.round(data.main.temp - 273.15)}°C</p>
-    //                 <p>Weather: ${data.weather[0].description}</p>
-    //             `;
-
-    //             document.getElementById('weather-info').innerHTML = weatherInfo;
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching weather data:', error);
-    //             alert('An error occurred while fetching weather data. Please try again.');
-    //         });
-    // }
+        weatherInfoElement.append(weatherHtml);
+    }
+});
