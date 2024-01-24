@@ -15,5 +15,12 @@ $('.datepicker').datepicker({
     autoclose: true,
 });
 
+// Event handler for the 'fetchButton' 
+$('#fetchButton').click(function () {
+    // Retrieve user input
+    const arrival_airport_code = String($('#arrival_airport_code').val());
+    const departure_date = formatDepartureDate($('#departure_date').val());
+});
+
 });
 
