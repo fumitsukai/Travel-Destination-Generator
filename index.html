@@ -10,6 +10,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link
       rel="icon"
       href="./assets/icons/icons8-earth-planet-50.png"
@@ -79,7 +80,7 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      value=""
+                      value="architecture"
                       id="flexCheckDefault1"
                     />
                     <label class="form-check-label" for="flexCheckDefault1"
@@ -221,6 +222,12 @@
                   </div>
                 </li>
               </ul>
+
+              <div class="form-group text-center">
+                <label for="departure_date" class="input-city"></label>
+                <input type="text" class="form-control datepicker" id="departure_date" required placeholder="Select a date" />
+              </div>
+              
             </div>
             <!-- Dropdown end -->
             <a class="btn search-btn" id="search-btn">SEARCH</a>
@@ -327,6 +334,8 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="./assets/js/flight.js"></script>
     <script src="./assets/js/destination.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>

@@ -1,1 +1,60 @@
-// Creation on JavaScript File for Flight API
+const flightapiKey = "65b1753702fe2edd39bfb4bd";
+
+function displayFlightData(date) {
+    // Retrieve user input
+    const departure_date = formatDepartureDate(date);
+    // const rawDepartureDate = $('#departure_date').val();
+    // console.log('Raw Departure Date:', rawDepartureDate);
+
+    // Build API URL
+    const apiURL = buildApiURL(flightapiKey, departure_date);
+
+    fetch(apiURL).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+
+        console.log('Form Submitted');
+        console.log(data)
+
+
+        // Display the result
+
+        displayResult(data);
+
+    }).catch(function (error) {
+        console.error('Error with fetching travel options', error);
+    })
+}
+
+
+
+// Function to build API URL
+function buildApiURL(flightapiKey, departure_date) {
+    const baseApiURL = 'https://api.flightapi.io/onewaytrip';
+    return `${baseApiURL}/${flightapiKey}/HEL/HEL/${departure_date}/1/0/0/Economy/USD`;
+}
+
+
+function displayResult(data) {
+
+    const agents = data.agents || [];
+    const agentNames = agents.map(agent => agent.name);
+
+    const resultString = agentNames.map(function (name) {
+
+        return '<li>' + name + '</li>';
+    }).join('') + '</ul>';
+
+    $('#result').html(resultString);
+
+}
+
+// Function to format departure date
+function formatDepartureDate(rawDate) {
+    const date = new Date(rawDate);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
