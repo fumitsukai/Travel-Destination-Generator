@@ -10,7 +10,10 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
     <link
       rel="icon"
       href="./assets/icons/icons8-earth-planet-50.png"
@@ -50,17 +53,17 @@
           <div class="card-body" id="dropdown-menu">
             <h2 class="card-title">Craft your next adventure</h2>
             <p class="card-text">In just a few clicks</p>
-            <div class="form-group text-center">
+           
               <label for="formGroupExampleInput" class="input-city"
                 >Which European city would you like to visit?</label
               >
               <input
                 type="text"
-                class="form-control"
+                class="form-control m-auto mb-4"
                 id="formGroupExampleInput"
                 placeholder="Madrid"
               />
-            </div>
+           
 
             <!-- Dropdown 2nd question-->
             <div class="dropdown mb-4">
@@ -222,14 +225,20 @@
                   </div>
                 </li>
               </ul>
-
-              <div class="form-group text-center">
+              <div class="dropdown mb-4">
                 <label for="departure_date" class="input-city"></label>
-                <input type="text" class="form-control datepicker" id="departure_date" required placeholder="Select a date" />
+                <input
+                  type="text"
+                  class="form-control m-auto datepicker mb-4"
+                  id="departure_date"
+                  required
+                  placeholder="Select a date"
+                />
               </div>
-              
             </div>
             <!-- Dropdown end -->
+
+
             <a class="btn search-btn" id="search-btn">SEARCH</a>
           </div>
         </div>
@@ -315,7 +324,7 @@
     <footer>
       <div class="footer-container">
         <div>
-          <p>©2024</p>
+          <p>©2024  WanderEase</p>
         </div>
         <div class="footer-nav">
           <a href="#">Home</a>
@@ -337,6 +346,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="./assets/js/flight.js"></script>
     <script src="./assets/js/destination.js"></script>
+    <script src="./assets/js/weather.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

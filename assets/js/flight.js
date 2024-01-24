@@ -27,7 +27,6 @@ function displayFlightData(date) {
 }
 
 
-
 // Function to build API URL
 function buildApiURL(flightapiKey, departure_date) {
     const baseApiURL = 'https://api.flightapi.io/onewaytrip';

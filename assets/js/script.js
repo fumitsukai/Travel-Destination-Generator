@@ -23,6 +23,7 @@ interests.change(function() {
       format: 'yyyy-mm-dd',
       autoclose: true,
   });
+  $('.datepicker').height($('input').height());
 
 //search button event listener
 searchBtn.on('click', function () {
@@ -32,7 +33,6 @@ searchBtn.on('click', function () {
         .addClass('destination-header fw-semibold pb-3')
         .text(`Discover ${locationInput.val()}`);
         console.log(interest);
-
     gridContainer.append(discoverCity);
     searchArea(locationInput.val(), interest);
     console.log(selectedDate);
@@ -49,4 +49,4 @@ $('body').on('click', '.saveBtn', function () {
     }
     fav.push(save);
     localStorage.setItem('id', JSON.stringify(fav));
-})
+});

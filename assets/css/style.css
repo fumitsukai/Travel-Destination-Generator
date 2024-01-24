@@ -8,10 +8,14 @@
   --white: #fffffc;
   --light-orange: #ffa500;
 }
+html{
+  height: 100%;
+}
 body {
   background-color: var(--blue-bay);
   color: var(--white);
   font-family: "Montserrat", sans-serif;
+  height: 100%;
 }
 /*Navbar*/
 .custom-nav {
@@ -50,6 +54,7 @@ body {
   justify-items: center;
   text-align: center;
 }
+
 /*Questionnaire*/
 .questions-container {
   border-radius: 10px;
@@ -94,8 +99,14 @@ body {
   color: var(--white);
 }
 .dropdown-menu {
-  width: 90%;
+  width: 63em;
 }
+.dropdown-menu.card-body{
+  display: flex;
+  flex-direction: column;
+
+}
+
 .form-check {
   padding-left: 10%;
 }
@@ -103,6 +114,7 @@ body {
   background-color: var(--orange);
   border-color: var(--white);
 }
+
 .search-btn {
   background-color: var(--blue-bay);
   color: var(--white);
@@ -155,6 +167,18 @@ footer {
   font-size: 16px;
   position: sticky;
   bottom:0;
+}
+@media only screen and (min-height: 1440px){
+  footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+  .footer-container{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
 }
 .footer-nav {
   display: flex;
