@@ -8,10 +8,14 @@
   --white: #fffffc;
   --light-orange: #ffa500;
 }
+html{
+  height: 100%;
+}
 body {
   background-color: var(--blue-bay);
   color: var(--white);
   font-family: "Montserrat", sans-serif;
+  height: 100%;
 }
 /*Navbar*/
 .custom-nav {
@@ -163,6 +167,18 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   font-size: 16px;
+}
+@media only screen and (min-height: 1440px){
+  footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+  .footer-container{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
 }
 .footer-nav {
   display: flex;
