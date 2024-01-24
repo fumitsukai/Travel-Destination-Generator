@@ -39,8 +39,17 @@ fetch(apiURL).then(function (response) {
     console.error('Error with fetching travel options', error);
 });
 
+ // Event handler for the 'departure_date' change
+ $('#departure_date').change(function () {
+    const selectedDate = String($(this).val());
 });
 
+// Function to build API URL
+function buildApiURL(apiKey, arrival_airport_code, departure_date) {
+    const baseApiURL = 'https://api.flightapi.io/onewaytrip';
+    return `${baseApiURL}/${apiKey}/HEL/HEL/${departure_date}/1/0/0/Economy/USD`;
+}
 
 });
+
 
