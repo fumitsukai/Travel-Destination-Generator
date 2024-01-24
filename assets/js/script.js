@@ -11,4 +11,5 @@ const mainContainer = $('.main-container');
 searchBtn.on('click', function() {
     mainContainer.empty();
     searchArea(area,interest);
+    showWeather();
 })
