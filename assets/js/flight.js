@@ -63,6 +63,23 @@ function displayResult(data) {
 
 }
 
+// Event handler for Airport Code
+$('#fetchButton').click(function () {
+    const arrivalAirportCode = $('#arrival_airport_code').val().trim();
+
+    if (arrivalAirportCode.length < 3) {
+        alert('Please enter a valid arrival airport code (at least 3 characters).');
+        return;
+    }
+
+    // Submit the form
+    submitForm();
+});
+
+// Function to submit the form
+function submitForm() {
+    console.log('Form Submitted');
+}
 
 });
 
