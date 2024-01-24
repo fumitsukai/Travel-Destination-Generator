@@ -11,7 +11,7 @@ let interest = "architecture";
 
 //from destinations.html
 
-const gridContainer = $('#cards-container');
+const gridContainer = $('.main-container');
 
 //will need to use geolocation to grab the lat and log by name 
 //will need to use radius to grab all the things to do in the area
@@ -73,6 +73,7 @@ function searchArea(area, interest) {
 
 function createGrid(data) {
     //create a row with 2 col
+    const container = $('<div>').addClass('container text-center');
     const rowDiv = $('<div>').addClass('row myRow text-center');
     const colPic = $('<div>').addClass('col-md-4 col-sm-12');
     const colDescr =$('<div>').addClass('col-md-8 col-sm-12 d-flex flex-column');
@@ -85,8 +86,11 @@ function createGrid(data) {
     const description = $('<p>').text(data.wikipedia_extracts.text).addClass('text-break lh-md text-start ps-4 mt-3');
     const saveBtn = $('<button>').addClass('btn saveBtn float-start ms-4 mt-auto').text('Save');
     //append 
-    gridContainer.append(rowDiv);
+    container.append(rowDiv).addClass('text-center');
     rowDiv.append(colPic,colDescr);
     colPic.append(prwImg);
     colDescr.append(name,description,saveBtn);
+    $('main').append(container);
 }
+
+// <h1 class="destination-header fw-semibold pb-3">Discover City</h1>
