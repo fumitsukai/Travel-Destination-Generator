@@ -22,5 +22,25 @@ $('#fetchButton').click(function () {
     const departure_date = formatDepartureDate($('#departure_date').val());
 });
 
+// Build API URL
+const apiURL = buildApiURL(apiKey, arrival_airport_code, departure_date);
+
+fetch(apiURL).then(function (response) {
+    return response.json();
+}).then(function (data) {
+
+    console.log(data);
+
+    // Display the result
+
+    displayResult(data);
+
+}).catch(function (error) {
+    console.error('Error with fetching travel options', error);
+});
+
+});
+
+
 });
 
