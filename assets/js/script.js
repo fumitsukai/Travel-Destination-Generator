@@ -49,4 +49,5 @@ $('body').on('click', '.saveBtn', function () {
     }
     fav.push(save);
     localStorage.setItem('id', JSON.stringify(fav));
+
 })
