@@ -50,6 +50,20 @@ function buildApiURL(apiKey, arrival_airport_code, departure_date) {
     return `${baseApiURL}/${apiKey}/HEL/HEL/${departure_date}/1/0/0/Economy/USD`;
 }
 
+function displayResult(data) {
+  
+    const agents = data.agents || [];
+    const agentNames = agents.map(agent => agent.name);
+
+    const resultString = agentNames.map(function (name) { 
+
+        return '<li>' + name + '</li>'; }).join('') + '</ul>';
+
+    $('#result').html(resultString);
+
+}
+
+
 });
 
 
