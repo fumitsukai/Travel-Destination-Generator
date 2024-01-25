@@ -23,6 +23,7 @@ interests.change(function() {
       format: 'yyyy-mm-dd',
       autoclose: true,
   });
+  
 
 //search button event listener
 searchBtn.on('click', function () {
@@ -32,11 +33,11 @@ searchBtn.on('click', function () {
         .addClass('destination-header fw-semibold pb-3')
         .text(`Discover ${locationInput.val()}`);
         console.log(interest);
-
     gridContainer.append(discoverCity);
-    searchArea(locationInput.val(), interest);
-    console.log(selectedDate);
+    showWeather();
     displayFlightData(selectedDate);
+    searchArea(locationInput.val(), interest);
+    
 })
 
 //function to save to local storage
@@ -49,5 +50,17 @@ $('body').on('click', '.saveBtn', function () {
     }
     fav.push(save);
     localStorage.setItem('id', JSON.stringify(fav));
+});
 
-})
+function addFavBtnData(){
+    const favdata = JSON.parse(localStorage.getItem('id'));
+    for (data in favdata) {
+        console.log(favdata[data].id);
+        const favBtn = $('<a>')
+        .addClass('dropdown-item')
+        .attr('href', '#')
+        .text(favdata[data].id);
+        $('#favBtn').append(favBtn);
+    }
+}
+addFavBtnData();
