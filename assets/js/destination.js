@@ -1,13 +1,8 @@
 //map API
-const APIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
+const travelAPIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
 // from index.html
-const dropdownMenu = $('#dropdown-menu');
 
-let area = 'Madrid';
 let limit = 6;
-let interest = "architecture";
-
-
 
 //from destinations.html
 
@@ -19,7 +14,7 @@ const gridContainer = $('.main-container');
 //need a function to grab api based on method and query
 
 function getAPI(method, query) {
-    var apiURL = `https://api.opentripmap.com/0.1/en/places/${method}?apikey=${APIkey}`;
+    var apiURL = `https://api.opentripmap.com/0.1/en/places/${method}?apikey=${travelAPIkey}`;
     if (query !== undefined) {
         apiURL += "&" + query;
     }
@@ -73,24 +68,34 @@ function searchArea(area, interest) {
 
 function createGrid(data) {
     //create a row with 2 col
-    const container = $('<div>').addClass('container text-center');
-    const rowDiv = $('<div>').addClass('row myRow text-center');
-    const colPic = $('<div>').addClass('col-md-4 col-sm-12');
-    const colDescr =$('<div>').addClass('col-md-8 col-sm-12 d-flex flex-column');
+    const container = $('<div>')
+        .addClass('container text-center');
+    const rowDiv = $('<div>')
+        .addClass('row myRow text-center');
+    const colPic = $('<div>')
+        .addClass('col-md-4 col-sm-12');
+    const colDescr = $('<div>')
+        .addClass('col-md-8 col-sm-12 d-flex flex-column');
     //add image and text from api
-    const prwImg = $('<img>').addClass('rounded float-start rowImg');
-    if(data.preview) {
+    const prwImg = $('<img>')
+        .addClass('rounded float-start rowImg');
+    if (data.preview) {
         prwImg.attr('src', data.preview.source);
     } else prwImg.attr('src', "./assets/images/Paris.jpg");
-    const name = $('<p>').text(data.name).addClass('fs-4 text-start ps-4 poiName fw-bold');
-    const description = $('<p>').text(data.wikipedia_extracts.text).addClass('text-break lh-md text-start ps-4 mt-3');
-    const saveBtn = $('<button>').addClass('btn saveBtn float-start ms-4 mt-auto').text('Save');
+    const name = $('<p>')
+        .text(data.name)
+        .addClass('fs-4 text-start ps-4 poiName fw-bold');
+    const description = $('<p>')
+        .text(data.wikipedia_extracts.text)
+        .addClass('text-break lh-md text-start ps-4 mt-3');
+    const saveBtn = $('<button>')
+        .addClass('btn saveBtn float-start ms-4 mt-auto')
+        .text('Save').attr('data-id', data.xid);
     //append 
-    container.append(rowDiv).addClass('text-center');
-    rowDiv.append(colPic,colDescr);
+    container.append(rowDiv)
+        .addClass('text-center');
+    rowDiv.append(colPic, colDescr);
     colPic.append(prwImg);
-    colDescr.append(name,description,saveBtn);
+    colDescr.append(name, description, saveBtn);
     $('main').append(container);
 }
-
-// <h1 class="destination-header fw-semibold pb-3">Discover City</h1>
