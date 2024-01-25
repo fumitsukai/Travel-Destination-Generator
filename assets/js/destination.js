@@ -68,8 +68,7 @@ function searchArea(area, interest) {
 
 function createGrid(data) {
     //create a row with 2 col
-    const container = $('<div>')
-        .addClass('container text-center');
+
     const rowDiv = $('<div>')
         .addClass('row myRow text-center');
     const colPic = $('<div>')
@@ -92,8 +91,7 @@ function createGrid(data) {
         .addClass('btn saveBtn float-start ms-4 mt-auto')
         .text('Save').attr('data-id', data.xid);
     //append 
-    container.append(rowDiv)
-        .addClass('text-center');
+    container.append(rowDiv);
     rowDiv.append(colPic, colDescr);
     colPic.append(prwImg);
     colDescr.append(name, description, saveBtn);

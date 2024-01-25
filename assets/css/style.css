@@ -54,6 +54,7 @@ body {
   justify-items: center;
   text-align: center;
 }
+
 /*Questionnaire*/
 .questions-container {
   border-radius: 10px;
@@ -97,25 +98,28 @@ body {
   background-color: var(--blue-bay);
   color: var(--white);
 }
+
 .dropdown-menu {
-  width: 90%;
+  width: fit-content;
 }
+
 .dropdown-menu.card-body{
   display: flex;
   flex-direction: column;
+}
 
-}
 .form-check {
-  padding-left: 10%;
+  display: inline;
+  padding: 0;
+  padding-right: 20%;
 }
+li {
+  padding-left: 20%;
+}
+
 .form-check-input:checked {
   background-color: var(--orange);
   border-color: var(--white);
-}
-.datepicker {
-  width: 200px;
-  font-size: 14px; 
-  padding-left: 12px;
 }
 
 .search-btn {
