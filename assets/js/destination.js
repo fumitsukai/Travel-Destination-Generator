@@ -4,6 +4,11 @@ const travelAPIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
 
 let limit = 6;
 
+let radius;
+$('.form2').change(function() {
+    radius = $(this).val();
+})
+
 //from destinations.html
 
 const gridContainer = $('.main-container');
@@ -50,7 +55,7 @@ function searchArea(area, interest) {
             let lon = data.lon;
             let lat = data.lat;
             //fetch data from api
-            getAPI('radius', `&radius=1000&limit=${limit}&rate=3&lon=${lon}&lat=${lat}&format=json&kinds=${interest}`)
+            getAPI('radius', `&radius=${radius}&limit=${limit}&rate=3&lon=${lon}&lat=${lat}&format=json&kinds=${interest}`)
                 .then(data => {
                     for (let i = 0; i < data.length; i++) {
                         getAPI('xid/' + data[i].xid)
