@@ -1,14 +1,12 @@
-const flightapiKey = "65b2623a513bf00665903e3d";
+const flightapiKey = "65b2ba253f45ced3a293c287";
 
-const container = $('<div>')
-.addClass('container text-center');
+const container = $('<div>').addClass('container text-center');
 const row = $('<div>').addClass('row myRow text-center');
-const colweather = $('<div>')
-.addClass('col-md-4 col-sm-12');
-const colflight = $('<div>')
-.addClass('col-md-8 col-sm-12 d-flex flex-column');
-row.append(colweather,colflight);
+const colweather = $('<div>').addClass('col-md-6 col-sm-12'); // Equal width on medium screens
+const colflight = $('<div>').addClass('col-md-6 col-sm-12 d-flex flex-column'); // Equal width on medium screens
+row.append(colweather, colflight);
 container.append(row);
+
 
 function displayFlightData(date) {
     // Retrieve user input
@@ -53,17 +51,15 @@ function displayResult(data) {
             const randomIndex = Math.floor(Math.random() * agents.length);
             const randomAgentName = agents[randomIndex].name;
             const resultString = `
-                <div class="new-card"> 
-                    <div class="card-header">
-                        <h3>Booking Provider for this Trip: </h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>${randomAgentName}</li>
-                        </ul>
-                    </div>
+            <div class="custom-card"> 
+                <div>
+                    <h3 class="card-title-custom">Booking Provider for this Trip: </h3>
                 </div>
-            `;
+                <div class="card-content-custom">
+                    <p class="card-title-custom">${randomAgentName}</p>
+                </div>
+            </div>
+        `;
 
             colflight.append(resultString);
             
