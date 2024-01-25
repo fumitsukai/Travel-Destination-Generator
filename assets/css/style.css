@@ -98,18 +98,25 @@ body {
   background-color: var(--blue-bay);
   color: var(--white);
 }
+
 .dropdown-menu {
-  width: 63em;
+  width: fit-content;
 }
+
 .dropdown-menu.card-body{
   display: flex;
   flex-direction: column;
-
 }
 
 .form-check {
-  padding-left: 10%;
+  display: inline;
+  padding: 0;
+  padding-right: 20%;
 }
+li {
+  padding-left: 20%;
+}
+
 .form-check-input:checked {
   background-color: var(--orange);
   border-color: var(--white);

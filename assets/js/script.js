@@ -23,7 +23,7 @@ interests.change(function() {
       format: 'yyyy-mm-dd',
       autoclose: true,
   });
-  $('.datepicker').height($('input').height());
+  
 
 //search button event listener
 searchBtn.on('click', function () {
