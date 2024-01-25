@@ -36,7 +36,7 @@ searchBtn.on('click', function () {
     gridContainer.append(discoverCity);
     searchArea(locationInput.val(), interest);
     console.log(selectedDate);
-    //displayFlightData(selectedDate);
+    displayFlightData(selectedDate);
 })
 
 //function to save to local storage
@@ -50,3 +50,16 @@ $('body').on('click', '.saveBtn', function () {
     fav.push(save);
     localStorage.setItem('id', JSON.stringify(fav));
 });
+
+function addFavBtnData(){
+    const favdata = JSON.parse(localStorage.getItem('id'));
+    for (data in favdata) {
+        console.log(favdata[data].id);
+        const favBtn = $('<a>')
+        .addClass('dropdown-item')
+        .attr('href', '#')
+        .text(favdata[data].id);
+        $('#favBtn').append(favBtn);
+    }
+}
+addFavBtnData();

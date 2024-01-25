@@ -1,4 +1,4 @@
-const flightapiKey = "65b1753702fe2edd39bfb4bd";
+const flightapiKey = "65b2623a513bf00665903e3d";
 
 function displayFlightData(date) {
     // Retrieve user input
@@ -37,16 +37,28 @@ function buildApiURL(flightapiKey, departure_date) {
 function displayResult(data) {
 
     const agents = data.agents || [];
-    const agentNames = agents.map(agent => agent.name);
 
-    const resultString = agentNames.map(function (name) {
+        if (agents.length > 0) {
 
-        return '<li>' + name + '</li>';
-    }).join('') + '</ul>';
+            const randomIndex = Math.floor(Math.random() * agents.length);
+            const randomAgentName = agents[randomIndex].name;
+            const resultString = `
+                <div class="new-card"> 
+                    <div class="card-header">
+                        <h3>Booking Provider for this Trip: </h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>${randomAgentName}</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
 
-    $('#result').html(resultString);
+            $('.main-container').html(resultString);
+        };
+    }
 
-}
 
 // Function to format departure date
 function formatDepartureDate(rawDate) {
