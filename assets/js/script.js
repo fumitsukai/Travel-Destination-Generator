@@ -34,9 +34,10 @@ searchBtn.on('click', function () {
         .text(`Discover ${locationInput.val()}`);
         console.log(interest);
     gridContainer.append(discoverCity);
-    searchArea(locationInput.val(), interest);
-    console.log(selectedDate);
+    showWeather();
     displayFlightData(selectedDate);
+    searchArea(locationInput.val(), interest);
+    
 })
 
 //function to save to local storage

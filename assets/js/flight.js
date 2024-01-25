@@ -1,5 +1,15 @@
 const flightapiKey = "65b2623a513bf00665903e3d";
 
+const container = $('<div>')
+.addClass('container text-center');
+const row = $('<div>').addClass('row myRow text-center');
+const colweather = $('<div>')
+.addClass('col-md-4 col-sm-12');
+const colflight = $('<div>')
+.addClass('col-md-8 col-sm-12 d-flex flex-column');
+row.append(colweather,colflight);
+container.append(row);
+
 function displayFlightData(date) {
     // Retrieve user input
     const departure_date = formatDepartureDate(date);
@@ -55,7 +65,8 @@ function displayResult(data) {
                 </div>
             `;
 
-            $('.main-container').html(resultString);
+            colflight.append(resultString);
+            
         };
     }
 
