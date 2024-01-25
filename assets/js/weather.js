@@ -29,14 +29,16 @@ function displayWeatherInfo(currentdata) {
     const description = currentdata.weather[0].description;
     const iconUrl = `https://openweathermap.org/img/w/${currentdata.weather[0].icon}.png`;
 
+    // <img src="${iconUrl}" alt="Weather Icon"></img>
+
     const weatherHtml = `
-            <div class="card">
-            <h5 class="card-title">${city}</h5>
-            <p class="card-text">${description}</p>
-            <p class="card-text">Temperature: ${temperature} °C</p>
-            <img src="${iconUrl}" alt="Weather Icon">
-            </div>
-        `;
+    <div class="custom-card mb-2">
+    <h5 class="card-title-custom">${city}</h5>
+    <p class="card-title-custom">${description}</p>
+    <p class="card-title-custom">Temperature: ${temperature} °C</p>
+  
+    </div>
+    `;
 
     weatherInfoElement.append(weatherHtml);
 };
