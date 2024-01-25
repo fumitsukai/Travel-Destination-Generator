@@ -36,7 +36,7 @@ searchBtn.on('click', function () {
     gridContainer.append(discoverCity);
     searchArea(locationInput.val(), interest);
     console.log(selectedDate);
-    //displayFlightData(selectedDate);
+    displayFlightData(selectedDate);
 })
 
 //function to save to local storage
