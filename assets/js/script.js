@@ -4,7 +4,7 @@ const searchBtn = $('#search-btn');
 const locationInput = $('#formGroupExampleInput');
 //const dep_date = $('.datepicker').datepicker("getDate");
 
-let interests = $('.form-check-input');
+let interests = $('.form1');
 let interest;
 let selectedDate;
 
