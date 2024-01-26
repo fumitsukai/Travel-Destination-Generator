@@ -63,12 +63,14 @@ function addFavBtnData() {
             .then(data => {
                 console.log(data);
                 createGridNoBtn(data);
+                $('#spinner').hide();
             })
     }
 }
 
 //onclick event for the favourites button that shows the data from localstorage in the grid
 $('#favBtn').on('click', function () {
+    $('#spinner').show();
     gridContainer.empty();
     addFavBtnData();     
 })

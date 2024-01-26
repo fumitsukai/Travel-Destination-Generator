@@ -5,7 +5,7 @@ const travelAPIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
 let limit = 6;
 
 let radius;
-$('.form2').change(function() {
+$('.form2').change(function () {
     radius = $(this).val();
 })
 
@@ -26,7 +26,6 @@ function getAPI(method, query) {
     return fetch(apiURL)
         .then(response => response.json())
         .then(data => {
-            $('#spinner').hide();
             return data;
         })
 }
