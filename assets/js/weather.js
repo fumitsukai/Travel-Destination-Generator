@@ -14,7 +14,6 @@ function showWeather() {
             return response.json()
         })
         .then(function (data) {
-            console.log(data);
             displayWeatherInfo(data);
         })
         .catch(function (error) {

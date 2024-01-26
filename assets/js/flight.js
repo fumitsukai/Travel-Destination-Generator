@@ -21,9 +21,6 @@ function displayFlightData(date) {
         return response.json();
     }).then(function (data) {
 
-        console.log('Form Submitted');
-        console.log(data)
-
 
         // Display the result
 
@@ -50,7 +47,7 @@ function displayResult(data) {
         const randomIndex = Math.floor(Math.random() * agents.length);
         const randomAgentName = agents[randomIndex].name;
         const resultString = `
-        <div class="custom-card"> 
+        <div class="custom-card flight-card"> 
             <div>
                 <h3 class="card-title-custom">Booking Provider: </h3>
             </div>
