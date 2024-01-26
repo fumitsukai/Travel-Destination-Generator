@@ -45,10 +45,13 @@ searchBtn.on('click', function () {
 $('body').on('click', '.saveBtn', function () {
     var thisBtn = $(this);
     const fav = JSON.parse(localStorage.getItem('id')) || [];
-    const save = {
-        id: thisBtn.data('id')
-    }
-    fav.push(save);
+    // const save = {
+    //     id: thisBtn.data('id')
+    // }
+    // console.log(save);
+    if(!fav.includes(thisBtn.data('id'))) {
+    fav.push(thisBtn.data('id'));
+    } 
     localStorage.setItem('id', JSON.stringify(fav));
 });
 
@@ -56,7 +59,7 @@ $('body').on('click', '.saveBtn', function () {
 function addFavBtnData() {
     const favdata = JSON.parse(localStorage.getItem('id'));
     for (data in favdata) {
-        getAPI('xid/' + favdata[data].id)
+        getAPI('xid/' + favdata[data])
             .then(data => {
                 console.log(data);
                 createGridNoBtn(data);
