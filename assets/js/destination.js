@@ -73,9 +73,9 @@ function createGrid(data) {
     const rowDiv = $('<div>')
         .addClass('row myRow text-center');
     const colPic = $('<div>')
-        .addClass('col-md-4 col-sm-12');
+        .addClass('col-md-3 col-sm-12');
     const colDescr = $('<div>')
-        .addClass('col-md-8 col-sm-12 d-flex flex-column');
+        .addClass('col-md-9 col-sm-12 d-flex flex-column');
     //add image and text from api
     const prwImg = $('<img>')
         .addClass('rounded float-start rowImg');
@@ -91,12 +91,17 @@ function createGrid(data) {
     const saveBtn = $('<button>')
         .addClass('btn saveBtn float-start ms-lg-4 mt-auto')
         .text('Save').attr('data-id', data.xid);
+    const iconFA = $('<i>').addClass('fa fa-map-marker ps-2');
+    const address = $('<p>')
+        .text(`${data.address.city},${data.address.house},${data.address.house_number},${data.address.pedestrian},${data.address.postcode}`)
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    address.append(iconFA);
     //append 
     container.append(rowDiv);
     rowDiv.append(colPic, colDescr);
     colPic.append(prwImg);
-    colDescr.append(name, description, saveBtn);
-    $('main').append(container);
+    colDescr.append(name, description, address, saveBtn);
+    gridContainer.append(container);
 }
 
 function createGridNoBtn(data) {
@@ -104,9 +109,9 @@ function createGridNoBtn(data) {
     const rowDiv = $('<div>')
         .addClass('row myRow text-center');
     const colPic = $('<div>')
-        .addClass('col-md-4 col-sm-12');
+        .addClass('col-md-3 col-sm-12');
     const colDescr = $('<div>')
-        .addClass('col-md-8 col-sm-12 d-flex flex-column');
+        .addClass('col-md-9 col-sm-12 d-flex flex-column');
     //add image and text from api
     const prwImg = $('<img>')
         .addClass('rounded float-start rowImg');
@@ -119,10 +124,15 @@ function createGridNoBtn(data) {
     const description = $('<p>')
         .text(data.wikipedia_extracts.text)
         .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    const iconFA = $('<i>').addClass('fa fa-map-marker ps-2');
+    const address = $('<p>')
+        .text(`${data.address.city},${data.address.house},${data.address.house_number},${data.address.pedestrian},${data.address.postcode}`)
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    address.append(iconFA);
     //append 
     container.append(rowDiv);
     rowDiv.append(colPic, colDescr);
     colPic.append(prwImg);
-    colDescr.append(name, description);
-    $('main').append(container);
+    colDescr.append(name, description, address);
+    gridContainer.append(container);
 }

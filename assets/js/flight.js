@@ -49,6 +49,7 @@ function displayResult(data) {
         const resultString = `
         <div class="custom-card flight-card"> 
             <div>
+            <i class="fa fa-plane" style="font-size:48px"></i>
                 <h3 class="card-title-custom">Booking Provider: </h3>
             </div>
             <div class="card-content-custom">

@@ -32,8 +32,9 @@ searchBtn.on('click', function () {
     const discoverCity = $('<h1>')
         .addClass('destination-header fw-semibold pb-3')
         .text(`Discover ${locationInput.val()}`);
-    console.log(interest);
-    gridContainer.append(discoverCity);
+    container.append(discoverCity);
+    row.append(colweather, colflight);
+    container.append(row);
     showWeather();
     displayFlightData(selectedDate);
     searchArea(locationInput.val(), interest);
@@ -49,9 +50,9 @@ $('body').on('click', '.saveBtn', function () {
     //     id: thisBtn.data('id')
     // }
     // console.log(save);
-    if(!fav.includes(thisBtn.data('id'))) {
-    fav.push(thisBtn.data('id'));
-    } 
+    if (!fav.includes(thisBtn.data('id'))) {
+        fav.push(thisBtn.data('id'));
+    }
     localStorage.setItem('id', JSON.stringify(fav));
 });
 
@@ -71,6 +72,11 @@ function addFavBtnData() {
 //onclick event for the favourites button that shows the data from localstorage in the grid
 $('#favBtn').on('click', function () {
     $('#spinner').show();
-    gridContainer.empty();
-    addFavBtnData();     
+    container.empty();
+    addFavBtnData();
+})
+$('#favBtn2').on('click', function () {
+    $('#spinner').show();
+    container.empty();
+    addFavBtnData();
 })
