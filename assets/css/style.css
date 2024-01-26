@@ -299,13 +299,14 @@ footer a:focus {
 .custom-card {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: --webkit-fill-available;
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
   background-color: #ff5903;
   border: 1px solid #ff5903;
   border-radius: 12px;
+  min-height: 10em;
 }
 
 .custom-card .card-heading-custom {
@@ -326,6 +327,11 @@ footer a:focus {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#spinner {
+  display: none;
+  margin-top: 5em;
 }
 
 /*@media only screen and (max-width: 1100px) {

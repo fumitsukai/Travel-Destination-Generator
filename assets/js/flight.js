@@ -20,14 +20,11 @@ function displayFlightData(date) {
     fetch(apiURL).then(function (response) {
         return response.json();
     }).then(function (data) {
-
-        console.log('Form Submitted');
-        console.log(data)
-
-
+        
         // Display the result
 
         displayResult(data);
+        $('#spinner').hide();
 
     }).catch(function (error) {
         console.error('Error with fetching travel options', error);
@@ -50,8 +47,9 @@ function displayResult(data) {
         const randomIndex = Math.floor(Math.random() * agents.length);
         const randomAgentName = agents[randomIndex].name;
         const resultString = `
-        <div class="custom-card"> 
+        <div class="custom-card flight-card"> 
             <div>
+            <i class="fa fa-plane" style="font-size:48px"></i>
                 <h3 class="card-title-custom">Booking Provider: </h3>
             </div>
             <div class="card-content-custom">
