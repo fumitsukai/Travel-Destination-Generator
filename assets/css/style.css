@@ -117,6 +117,10 @@ li {
   padding-left: 20%;
 }
 
+.card-weather{
+  background-color: var(--orange);
+}
+
 .form-check-input:checked {
   background-color: var(--orange);
   border-color: var(--white);
@@ -288,6 +292,46 @@ footer a:focus {
 
 .hide {
   visibility: hidden;
+}
+
+ /* Custom style for the cards */
+
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  width: --webkit-fill-available;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  background-color: #ff5903;
+  border: 1px solid #ff5903;
+  border-radius: 12px;
+  min-height: 10em;
+}
+
+.custom-card .card-heading-custom {
+  
+  color: #fff;
+  padding: 12px; 
+  margin: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-card .card-title-custom {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  margin: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#spinner {
+  display: none;
+  margin-top: 5em;
 }
 
 /*@media only screen and (max-width: 1100px) {

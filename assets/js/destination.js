@@ -5,7 +5,7 @@ const travelAPIkey = `5ae2e3f221c38a28845f05b6245b5bfa6f7e4dad55c2a379dc99093c`;
 let limit = 6;
 
 let radius;
-$('.form2').change(function() {
+$('.form2').change(function () {
     radius = $(this).val();
 })
 
@@ -30,14 +30,12 @@ function getAPI(method, query) {
         })
 }
 
-//console.log(geolocation.then(data => console.log(data.lon)));
 
 //will need a function to get the coordinaties of the selected area
 //will need to get from input the area
 
 function getCoordinates(area) {
     const geolocation = getAPI('geoname', `&name=${area}`).then(data => {
-        console.log(data);
         const coordinates = {
             lon: data.lon,
             lat: data.lat
@@ -60,7 +58,6 @@ function searchArea(area, interest) {
                     for (let i = 0; i < data.length; i++) {
                         getAPI('xid/' + data[i].xid)
                             .then(data => {
-                                console.log(data);
                                 createGrid(data);
                             })
                     }
@@ -73,13 +70,12 @@ function searchArea(area, interest) {
 
 function createGrid(data) {
     //create a row with 2 col
-
     const rowDiv = $('<div>')
         .addClass('row myRow text-center');
     const colPic = $('<div>')
-        .addClass('col-md-4 col-sm-12');
+        .addClass('col-md-3 col-sm-12');
     const colDescr = $('<div>')
-        .addClass('col-md-8 col-sm-12 d-flex flex-column');
+        .addClass('col-md-9 col-sm-12 d-flex flex-column');
     //add image and text from api
     const prwImg = $('<img>')
         .addClass('rounded float-start rowImg');
@@ -88,17 +84,55 @@ function createGrid(data) {
     } else prwImg.attr('src', "./assets/images/Paris.jpg");
     const name = $('<p>')
         .text(data.name)
-        .addClass('fs-4 text-start ps-4 poiName fw-bold');
+        .addClass('fs-4 text-lg-start pt-sm-2 ps-lg-4 poiName fw-bold');
     const description = $('<p>')
         .text(data.wikipedia_extracts.text)
-        .addClass('text-break lh-md text-start ps-4 mt-3');
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
     const saveBtn = $('<button>')
-        .addClass('btn saveBtn float-start ms-4 mt-auto')
+        .addClass('btn saveBtn float-start ms-lg-4 mt-auto')
         .text('Save').attr('data-id', data.xid);
+    const iconFA = $('<i>').addClass('fa fa-map-marker ps-2');
+    const address = $('<p>')
+        .text(`${data.address.city},${data.address.house},${data.address.house_number},${data.address.pedestrian},${data.address.postcode}`)
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    address.append(iconFA);
     //append 
     container.append(rowDiv);
     rowDiv.append(colPic, colDescr);
     colPic.append(prwImg);
-    colDescr.append(name, description, saveBtn);
-    $('main').append(container);
+    colDescr.append(name, description, address, saveBtn);
+    gridContainer.append(container);
+}
+
+function createGridNoBtn(data) {
+    //create a row with 2 col
+    const rowDiv = $('<div>')
+        .addClass('row myRow text-center');
+    const colPic = $('<div>')
+        .addClass('col-md-3 col-sm-12');
+    const colDescr = $('<div>')
+        .addClass('col-md-9 col-sm-12 d-flex flex-column');
+    //add image and text from api
+    const prwImg = $('<img>')
+        .addClass('rounded float-start rowImg');
+    if (data.preview) {
+        prwImg.attr('src', data.preview.source);
+    } else prwImg.attr('src', "./assets/images/Paris.jpg");
+    const name = $('<p>')
+        .text(data.name)
+        .addClass('fs-4 text-lg-start pt-sm-2 ps-lg-4 poiName fw-bold');
+    const description = $('<p>')
+        .text(data.wikipedia_extracts.text)
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    const iconFA = $('<i>').addClass('fa fa-map-marker ps-2');
+    const address = $('<p>')
+        .text(`${data.address.city},${data.address.house},${data.address.house_number},${data.address.pedestrian},${data.address.postcode}`)
+        .addClass('text-break lh-md text-lg-start ps-lg-4 mt-3');
+    address.append(iconFA);
+    //append 
+    container.append(rowDiv);
+    rowDiv.append(colPic, colDescr);
+    colPic.append(prwImg);
+    colDescr.append(name, description, address);
+    gridContainer.append(container);
 }

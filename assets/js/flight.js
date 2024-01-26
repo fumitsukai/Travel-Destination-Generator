@@ -1,16 +1,14 @@
-const flightapiKey = "65b2623a513bf00665903e3d";
+const flightapiKey = "65b2de243f45ced3a293c290";
 
-const container = $('<div>')
-.addClass('container text-center');
+const container = $('<div>').addClass('container text-center');
 const row = $('<div>').addClass('row myRow text-center');
-const colweather = $('<div>')
-.addClass('col-md-4 col-sm-12');
-const colflight = $('<div>')
-.addClass('col-md-8 col-sm-12 d-flex flex-column');
-row.append(colweather,colflight);
+const colweather = $('<div>').addClass('col-md-6 col-sm-12'); // Equal width on medium screens
+const colflight = $('<div>').addClass('col-md-6 col-sm-12 d-flex flex-column'); // Equal width on medium screens
+row.append(colweather, colflight);
 container.append(row);
 
 function displayFlightData(date) {
+    
     // Retrieve user input
     const departure_date = formatDepartureDate(date);
     // const rawDepartureDate = $('#departure_date').val();
@@ -22,14 +20,11 @@ function displayFlightData(date) {
     fetch(apiURL).then(function (response) {
         return response.json();
     }).then(function (data) {
-
-        console.log('Form Submitted');
-        console.log(data)
-
-
+        
         // Display the result
 
         displayResult(data);
+        $('#spinner').hide();
 
     }).catch(function (error) {
         console.error('Error with fetching travel options', error);
@@ -47,27 +42,25 @@ function buildApiURL(flightapiKey, departure_date) {
 function displayResult(data) {
 
     const agents = data.agents || [];
+    if (agents.length > 0) {
 
-        if (agents.length > 0) {
+        const randomIndex = Math.floor(Math.random() * agents.length);
+        const randomAgentName = agents[randomIndex].name;
+        const resultString = `
+        <div class="custom-card flight-card"> 
+            <div>
+            <i class="fa fa-plane" style="font-size:48px"></i>
+                <h3 class="card-title-custom">Booking Provider: </h3>
+            </div>
+            <div class="card-content-custom">
+                <p class="card-title-custom">${randomAgentName}</p>
+            </div>
+        </div>
+    `;
 
-            const randomIndex = Math.floor(Math.random() * agents.length);
-            const randomAgentName = agents[randomIndex].name;
-            const resultString = `
-                <div class="new-card"> 
-                    <div class="card-header">
-                        <h3>Booking Provider for this Trip: </h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>${randomAgentName}</li>
-                        </ul>
-                    </div>
-                </div>
-            `;
-
-            colflight.append(resultString);
-            
-        };
+        colflight.append(resultString);
+    }
+     
     }
 
 
