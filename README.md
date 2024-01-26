@@ -1,27 +1,41 @@
-# Travel-Destination-Generator
+# WanderEase
 
-WanderEase is a web application that taps into the capabilities of the OpenTripMap API, providing individuals with a tailored adventure planning experience. Users can specify their preferred European city, interests, and search radius, resulting in the dynamic creation of a grid showcasing destinations complete with engaging images and detailed descriptions. This intuitive experience is facilitated through the integration of jQuery, Bootstrap, and the OpenTripMap API.
+WanderEase is a web application that taps into the capabilities of the OpenTripMap API, providing individuals with a tailored adventure planning experience. Users can specify their preferred city, interests, and search radius, resulting in the dynamic creation of a grid showcasing destinations complete with engaging images and detailed descriptions. This intuitive experience is facilitated through the integration of JavaScript, jQuery, Bootstrap, OpenTripMap API, OpenWeatherMap API and Flight data API.
 
 
 # Usage
 Deployed project URL: 
 
+https://fumitsukai.github.io/Travel-Destination-Generator/
 
-These screenshots shows how the app looks:
+Presentation URL:
 
-![Desktop view](./assets/images/)
-
-
-
-![Desktop view](./assets/images/)
+https://www.canva.com/design/DAF66qEwJuo/8hKOZ7iGlc7BqwnUq_a_2g/edit?utm_content=DAF66qEwJuo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 
-![Desktop view](./assets/images/)
+These screenshots show how the app appears in desktop view:
+
+![Desktop view](./assets/images/wanderease-home.jpeg)
+
+![Desktop view](./assets/images/wanderease-dropdown.jpeg)
+
+The user can complete the questionnaire and then click the search button to generate a results page tailored to their preferences, showcasing all the recommendations based on their selections.
+
+![Desktop view](./assets/images/wanderease-results.jpeg)
+
+When the user clicks the save button, the item will be added to their "favorites", allowing them to access it at any time, as it will be securely stored in local storage.
+
+![Desktop view](./assets/images/wanderease-favorites.jpeg)
+
+This screenshot illustrates how the app appears on mobile devices:
+
+![Desktop view](./assets/images/wanderease-mobile.jpeg)
+
 
 ## License
 MIT License
 
-Copyright (c) [2024] []
+Copyright (c) [2024]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
