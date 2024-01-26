@@ -28,7 +28,7 @@ $('.datepicker').datepicker({
 //search button event listener
 searchBtn.on('click', function () {
     gridContainer.empty();
-
+    $('#spinner').show();
     const discoverCity = $('<h1>')
         .addClass('destination-header fw-semibold pb-3')
         .text(`Discover ${locationInput.val()}`);

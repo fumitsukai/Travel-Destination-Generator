@@ -20,11 +20,11 @@ function displayFlightData(date) {
     fetch(apiURL).then(function (response) {
         return response.json();
     }).then(function (data) {
-
-
+        
         // Display the result
 
         displayResult(data);
+        $('#spinner').hide();
 
     }).catch(function (error) {
         console.error('Error with fetching travel options', error);

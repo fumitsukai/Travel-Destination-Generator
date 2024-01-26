@@ -26,6 +26,7 @@ function getAPI(method, query) {
     return fetch(apiURL)
         .then(response => response.json())
         .then(data => {
+            $('#spinner').hide();
             return data;
         })
 }
